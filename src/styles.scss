@@ -1,0 +1,13 @@
+/*------------------------------------------------------------------------------
+  MaterialLab - Angular 4 Seed Project
+------------------------------------------------------------------------------*/
+
+//== Vendor
+@import '../node_modules/multi-brand-colors/dist/scss/index.scss';
+@import '../node_modules/fullcalendar/dist/fullcalendar.css';
+@import './assets/mv-icon/mv-basico.css';
+@import './assets/mv-icon/mv-hosp.css';
+//== App
+@import "./app/shared/styles/app";
+//== Custom
+@import "./assets/custom.css";

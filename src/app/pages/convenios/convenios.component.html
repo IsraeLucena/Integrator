@@ -1,0 +1,106 @@
+<div id="content_wrapper" class="fullWidth1-wrapper">
+  <div class="content">
+    <div class="header-wrapper header-sm">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <header>
+              <h1>Convênios e Planos</h1>
+            </header>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-body">
+      <div class="card">
+        <!-- <header class="card-header">
+          <form class="form-inline">
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="inputnome" class="sr-only">Nome</label>
+              <input type="text" class="form-control" id="inputnome" placeholder="Nome">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="inputcnes" class="sr-only">CNES</label>
+              <input type="text" class="form-control" id="inputcnes" placeholder="CNES">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Adicionar Unidade</button>
+          </form>
+          <h2 class="card-title">Card Header</h2>
+            <small class="card-subtitle">Paleo flexitarian bushwick letterpress</small>
+        </header> -->
+        <header class="card-header">
+          <form (submit)=novaUnidade($event)>
+            <div class="row">
+              <div class="col-sm-8 form-group " style="margin-top: 0.9rem">
+                <label for="inputnome" class="sr-only">Nome</label>
+                <input type="text" class="form-control" id="inputNome" placeholder="Nome">
+              </div>
+              <div class="col-sm-3 form-group ">
+                <button type="submit" class="btn btn-primary">Pesquisar Convênio</button>
+              </div>
+            </div>
+          </form>
+        </header>
+        <table class="table">
+          <thead>
+            <tr>
+              <!-- <th scope="col">#</th> -->
+              <th scope="col">Nome</th>
+              <th scope="col">Code</th>
+              <th scope="col">ANS Code</th>
+              <th scope="col">Type</th>
+              <th scope="col">Ativo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let convenio of convenios; let i = index" (click)="open(content, convenio.types, convenio.name)">
+              <!-- <th scope="row">{{i+1}}</th> -->
+              <td>{{convenio.name}}</td>
+              <td>{{convenio.code}}</td>
+              <td>{{convenio.ansCode}}</td>
+              <td>{{convenio.type}}</td>
+              <td>{{convenio.activated}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<footer id="footer_wrapper" class="footer_wrapper"></footer>
+
+<ng-template #content let-c="close" let-d="dismiss" style="max-width: 800px;">
+  <div class="modal-header ">
+    <h4 class="modal-title">PLANOS - {{this.nome}}</h4>
+    <!-- <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button> -->
+  </div>
+  <div class="modal-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <!-- <th scope="col">ID</th> -->
+          <th scope="col">Nome</th>
+          <th scope="col">Code</th>
+          <th scope="col">ANS Code</th>
+          <th scope="col">Type</th>
+          <th scope="col">Ativo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let type of types">
+          <!-- <th scope="row">{{type.id}}</th> -->
+          <td>{{type.name}}</td>
+          <td>{{type.code}}</td>
+          <td>{{type.ansCode}}</td>
+          <td>{{type.type}}</td>
+          <td>{{type.activated}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Fechar</button>
+  </div>
+</ng-template>

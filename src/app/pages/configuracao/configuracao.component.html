@@ -1,0 +1,128 @@
+<style>
+  .areatext {
+    height: 400px;
+  }
+</style>
+
+<div id="content_wrapper" class="fullWidth1-wrapper">
+  <div class="content">
+    <div class="header-wrapper header-sm">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <header>
+              <h1>Configurações</h1>
+            </header>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-body">
+      <div class="container">
+        <form #modelConf="ngForm" (ngSubmit)="onSubmit(modelConf)">
+          <div class="card">
+            <header class="card-header">
+              <!-- <form class="form-inline">
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="inputnome" class="sr-only">Nome</label>
+              <input type="text" class="form-control" id="inputnome" placeholder="Nome">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="inputcnes" class="sr-only">CNES</label>
+              <input type="text" class="form-control" id="inputcnes" placeholder="CNES">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Adicionar Unidade</button>
+          </form> -->
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <h2 class="card-title">Campos de configurações do Integrador</h2>
+                  </div>
+                  <div class="col-3 text-right">
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                  </div>
+                </div>
+              </div>
+            </header>
+            <div class="content-body">
+              <div class="card">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <label for="inputEmail">E-mail</label>
+                      <input type="email" class="form-control" [(ngModel)]="config.email" name="inputEmail" placeholder="name@example.com">
+                    </div>
+                    <div class="col-sm-4">
+                      <label for="inputPass">Senha</label>
+                      <input type="password" class="form-control" [(ngModel)]="config.password" name="inputPass" placeholder="*******">
+                    </div>
+                    <div class="col-sm-4">
+                      <label for="inputTime">Intervalo de Tempo(horas)</label>
+                      <input type="number" class="form-control" [(ngModel)]="config.integrationJobScheduleTimeInterval" name="inputTime" placeholder="24">
+                      <small id="timelHelp" class="form-text text-muted">Intervalo no qual as querys serão executadas.</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <label for="inputKey">Chave Cliente</label>
+                      <input type="text" class="form-control" [(ngModel)]="config.clientkey" name="inputKey" placeholder="ABC12">
+                    </div>
+                    <div class="col-sm-4">
+                      <label for="inputClient">Nome Cliente</label>
+                      <input type="text" class="form-control" [(ngModel)]="config.clientName" name="inputClient" placeholder="Nome">
+                    </div>
+                    <div class="col-sm-4">
+                      <label for="inputVersion">Versão</label>
+                      <input type="number" class="form-control" name="inputVers" placeholder="24.12.3.45" readonly>
+                    </div>
+                  </div>
+                </div>
+                <ngb-tabset class="tabpanel tab-header">
+                  <ngb-tab title="Query Convênios">
+                    <ng-template ngbTabContent>
+                      <div class="content-body">
+                        <div class="card">
+                          <textarea class="areatext" [(ngModel)]="config.migratePlansQuery" name="inputQPlan"></textarea>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab title="Query Planos">
+                    <ng-template ngbTabContent>
+                      <div class="content-body">
+                        <div class="card">
+                          <textarea class="areatext" [(ngModel)]="config.migrateTypesQuery" name="inputQType"></textarea>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab title="Query Proibição">
+                    <ng-template ngbTabContent>
+                      <div class="content-body">
+                        <div class="card">
+                          <textarea class="areatext" [(ngModel)]="config.migrateBlackListsQuery" name="inputQBlack"></textarea>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab title="Query Tempo Médio">
+                    <ng-template ngbTabContent>
+                      <div class="content-body">
+                        <div class="card">
+                          <textarea class="areatext" name="inputQTime" readonly></textarea>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<footer id="footer_wrapper" class="footer_wrapper"></footer>

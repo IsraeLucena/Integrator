@@ -1,0 +1,130 @@
+<nav id="app_main-menu-wrapper">
+  <ul class="nav-logo nav-mobile">
+    <li class="nav-item logo-wrapper">
+      <a href="javascript:void(0)" [routerLink]="['/unidades']">
+        <div class="logo">
+          <!-- <img src="assets/img/logo/logo-icon.png" alt="Logo"> -->
+          <i class="zmdi zmdi-link"></i>
+        </div>
+        <h1 class="brand-text">Integrador</h1>
+      </a>
+    </li>
+  </ul>
+  <div class="sidebar-inner sidebar-push" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+    <profile></profile>
+    <ul class="nav nav-pills flex-column">
+      <!-- <li class="sidebar-header">NAVIGATION</li> -->
+      <li routerLinkActive="active">
+        <a href="javascript:void(0)" [routerLink]="['/unidades']" class="">
+          <i class="zmdi zmdi-hospital"></i>
+          Unidades
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a href="javascript:void(0)" [routerLink]="['/convenios']" class="">
+          <i class="zmdi zmdi-assignment"></i>
+          Convênios e Planos
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a href="javascript:void(0)" [routerLink]="['/servicos']" class="">
+          <i class="zmdi zmdi-alert-triangle"></i>
+          Serviços de Urgência
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a href="javascript:void(0)" [routerLink]="['/configuracao']" class="">
+          <i class="zmdi zmdi-settings"></i>
+          Configurações
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a href="javascript:void(0)" [routerLink]="['/registro']" class="">
+          <i class="zmdi zmdi-code-setting"></i>
+          Registros
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a href="javascript:void(0)" [routerLink]="['/blacklist']" class="">
+          <i class="zmdi zmdi-format-strikethrough"></i>
+          Proibições
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a href="javascript:void(0)" [routerLink]="['/manual']" class="">
+          <i class="zmdi zmdi-edit"></i>
+          Int. Manual
+        </a>
+      </li>
+      <!-- <li routerLinkActive="active open" appNavDropdown class="nav-dropdown">
+        <a md-ripple href="javascript:void(0)" class="" appNavDropdownToggle>
+          <i class="zmdi zmdi-view-carousel"></i>Layouts</a>
+        <ul class="nav-sub">
+          <li routerLinkActive="active open" appNavDropdown class="nav-dropdown">
+            <a md-ripple href="javascript:void(0)" class="" appNavDropdownToggle>Full Width</a>
+            <ul class="nav-sub">
+              <li routerLinkActive="active">
+                <a href="javascript:void(0)" [routerLink]="['/page-layouts/full-width-v1']">Full Width v1</a>
+              </li>
+              <li routerLinkActive="active">
+                <a href="javascript:void(0)" [routerLink]="['/page-layouts/full-width-v2']">Full Width v2</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav-sub">
+          <li routerLinkActive="active open" appNavDropdown class="nav-dropdown">
+            <a md-ripple href="javascript:void(0)" class="" appNavDropdownToggle>Boxed Layouts</a>
+            <ul class="nav-sub">
+              <li routerLinkActive="active">
+                <a href="javascript:void(0)" [routerLink]="['/page-layouts/boxed-layout-v1']">Boxed Layout v1</a>
+              </li>
+              <li routerLinkActive="active">
+                <a href="javascript:void(0)" [routerLink]="['/page-layouts/boxed-layout-v2']">Boxed Layout v2</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav-sub">
+          <li routerLinkActive="active open" appNavDropdown class="nav-dropdown">
+            <a md-ripple href="javascript:void(0)" class="" appNavDropdownToggle>Detached Toolbar</a>
+            <ul class="nav-sub">
+              <li routerLinkActive="active">
+                <a href="javascript:void(0)" [routerLink]="['/page-layouts/detached-toolbar-left']">Detached Toolbar Left</a>
+              </li>
+              <li routerLinkActive="active">
+                <a href="javascript:void(0)" [routerLink]="['/page-layouts/detached-toolbar-right']">Detached Toolbar Right</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav-sub">
+          <li routerLinkActive="active open" appNavDropdown class="nav-dropdown">
+            <a md-ripple href="javascript:void(0)" class="" appNavDropdownToggle>Left Side Nav</a>
+            <ul class="nav-sub">
+              <li routerLinkActive="active">
+                <a href="javascript:void(0)" [routerLink]="['/page-layouts/left-side-nav-v1']">Left Side Nav v1</a>
+              </li>
+              <li routerLinkActive="active">
+                <a href="javascript:void(0)" [routerLink]="['/page-layouts/left-side-nav-v2']">Left Side Nav v2</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav-sub">
+          <li routerLinkActive="active open" appNavDropdown class="nav-dropdown">
+            <a md-ripple href="javascript:void(0)" class="" appNavDropdownToggle>Right Side Nav</a>
+            <ul class="nav-sub">
+              <li routerLinkActive="active">
+                <a href="javascript:void(0)" [routerLink]="['/page-layouts/right-side-nav-v1']">Right Side Nav v1</a>
+              </li>
+              <li routerLinkActive="active">
+                <a href="javascript:void(0)" [routerLink]="['/page-layouts/right-side-nav-v2']">Right Side Nav v2</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li> -->
+    </ul>
+  </div>
+</nav>

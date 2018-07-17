@@ -1,0 +1,40 @@
+
+@font-face {
+  font-family: 'mv-hosp';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./mv-hosp.eot');
+  src: local('mv-hosp'),
+    url('./mv-hosp.woff') format('woff'),
+    url('./mv-hosp.woff2') format('woff2'),
+    url('./mv-hosp.ttf') format('truetype');
+}
+
+.mv-hosp {
+  font-family: 'mv-hosp';
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "liga" 1;
+  font-style: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.mv-hosp.dp24 {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+.mv-hosp.dp36 {
+  font-size: 36px;
+  width: 36px;
+  height: 36px;
+}
+.mv-hosp.dp48 {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+}
+    

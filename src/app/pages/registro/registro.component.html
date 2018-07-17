@@ -1,0 +1,55 @@
+<div id="content_wrapper" class="fullWidth1-wrapper">
+  <div class="content">
+    <div class="header-wrapper header-sm">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <header>
+              <h1> Registro de Atividades do Integrador.</h1>
+            </header>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-body">
+      <div class="card">
+        <!-- <header class="card-header">
+          <form class="form-inline">
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="inputnome" class="sr-only">Nome</label>
+              <input type="text" class="form-control" id="inputnome" placeholder="Nome">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="inputcnes" class="sr-only">CNES</label>
+              <input type="text" class="form-control" id="inputcnes" placeholder="CNES">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Adicionar Unidade</button>
+          </form>
+          <h2 class="card-title">Card Header</h2>
+          <small class="card-subtitle">Paleo flexitarian bushwick letterpress</small>
+        </header> -->
+        <div class="accordion" id="accordion">
+          <div class="card" *ngFor="let log of logs; let i = index" style="margin-bottom: 0;">
+            <div class="card-header p-0" id="headingOne">
+              <div class="d-flex flex-row" data-toggle="collapse" [attr.data-target]="'#collapseP'+i" style="cursor: pointer;">
+                <!-- ID - {{log.id}} / Data - {{log.protocolSendingData}} -->
+                <div class="p-2 text-truncate" style="width: 160px;">
+                  Id: {{log.id}}
+                </div>
+                <div class="p-2 text-truncate" style="width: 260px;">
+                  Data: {{log.protocolSendingData}}
+                </div>
+              </div>
+            </div>
+            <div [attr.id]="'collapseP'+i" class="collapse">
+              <div class="card-body">
+                <pre>{{jsonConvert(log.sentProtocol)|json}}</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer id="footer_wrapper" class="footer_wrapper"></footer>

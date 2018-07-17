@@ -1,0 +1,44 @@
+<div id="content_wrapper" class="fullWidth1-wrapper">
+  <div class="content">
+    <div class="header-wrapper header-sm">
+      <header class="container-fluid">
+        <div class="row">
+          <div class="col">
+            <h1>{{title}}</h1>
+          </div>
+        </div>
+      </header>
+    </div>
+    <div class="content-body">
+      <div class="card">
+        <div class="card-header">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <h2 class="card-title">Informações do cliente</h2>
+                <small class="card-subtitle">Arquivo preenchido com as informações capturadas do cliente</small>
+              </div>
+              <div class="col-md-3">
+                <button class="btn btn-primary" (click)="atualizarDados()">Atualizar Dados</button>
+              </div>
+              <div class="col-md-3 .offset-md-3">
+                <button class="btn btn-success " (click)="enviarDados()">Enviar Dados</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div ace-editor [(text)]="text" [mode]="'json'" [theme]="'monokai'" [options]="options" [readOnly]="true" [autoUpdateContent]="true"
+          [durationBeforeCallback]="1000" (textChanged)="onChange($event)" style="min-height: 200px; width:100%; overflow: auto;">
+        </div>
+        <!-- <br>
+        <div style="border: solid 1px  red;">
+          {{text}}
+        </div>
+        <div class="card-body ">
+          <pre>{{client|json}}</pre>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+<footer id="footer_wrapper" class="footer_wrapper"></footer>

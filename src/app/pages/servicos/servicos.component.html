@@ -1,0 +1,311 @@
+<style>
+  ​.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  .switch input {
+    display: none;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked+.slider {
+    background-color: #2196F3;
+  }
+
+  input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+</style>
+<div id="content_wrapper" class="fullWidth2-wrapper">
+  <div class="content">
+    <div class="header-wrapper header-sm shadow-none">
+      <header class="container-fluid">
+        <div class="row">
+          <div class="col">
+            <h1>Serviços de Urgência</h1>
+          </div>
+        </div>
+      </header>
+    </div>
+    <ngb-tabset class="tabpanel tab-header">
+      <ngb-tab title="Serviço de Urgência">
+        <ng-template ngbTabContent>
+          <div class="content-body">
+            <div class="card">
+              <header class="card-header">
+                <form (submit)=novaUnidade($event)>
+                  <div class="row">
+                    <div class="col-sm-8 form-group " style="margin-top: 0.9rem">
+                      <label for="inputnome" class="sr-only">Nome</label>
+                      <input type="text" class="form-control" id="inputNome" placeholder="Nome">
+                    </div>
+                    <div class="col-sm-3 form-group ">
+                      <button type="submit" class="btn btn-primary">Pesquisar Serviço</button>
+                    </div>
+                  </div>
+                </form>
+              </header>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Serviço</th>
+                    <th scope="col">Chave</th>
+                    <th scope="col">Ordem</th>
+                    <th scope="col">Ativado</th>
+                    <th scope="col" style="width: 40px; padding: 0 0.75rem 0 0;">
+                      <button type="button" class="btn btn-outline-success" style="padding: 3px" (click)="open(content)">
+                        <i class="zmdi zmdi-plus-circle"></i>
+                      </button>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let servico of servicos; let i = index">
+                    <td (click)="open(content, servico.name, servico.key, servico.fixedOrder, servico.activated, servico.id)">{{servico.name}}</td>
+                    <td (click)="open(content, servico.name, servico.key, servico.fixedOrder, servico.activated, servico.id)">{{servico.key}}</td>
+                    <td (click)="open(content, servico.name, servico.key, servico.fixedOrder, servico.activated, servico.id)">{{servico.fixedOrder}}</td>
+                    <td>
+                      <div style="width: 60px;height: 34px; position: relative;display: inline-block;">
+                        <label class="switch">
+                          <input type="checkbox" checked="true" onclick="return false">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+                    </td>
+                    <td class="text-center" style="padding: 0 0.75rem 0 0;">
+                      <button type="button" class="btn btn-outline-danger" style="padding: 3px" disabled (click)="remove(servico.id)">
+                        <i class="zmdi zmdi-delete"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Serviço de Urgência por Unidade">
+        <ng-template ngbTabContent>
+          <div class="content-body">
+            <div class="card">
+              <header class="card-header">
+                <form (submit)=novaUnidade($event)>
+                  <div class="row">
+                    <div class="col-sm-8 form-group " style="margin-top: 0.9rem">
+                      <label for="inputnome" class="sr-only">Nome</label>
+                      <input type="text" class="form-control" id="inputNome" placeholder="Nome">
+                    </div>
+                    <div class="col-sm-3 form-group ">
+                      <button type="submit" class="btn btn-primary">Pesquisar Unidade</button>
+                    </div>
+                  </div>
+                </form>
+              </header>
+              <div class="accordion" id="accordion">
+                <div class="card p-0 m-0" *ngFor="let unidade of unidades; let i = index">
+                  <div class="card-header border-bottom p-0" id="'collapseP'+i">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#collapseP'+i" aria-expanded="true"
+                        aria-controls="collapseOne">
+                        Unidade {{unidade.unitName}}
+                      </button>
+                    </h5>
+                  </div>
+                  <div [attr.id]="'collapseP'+i" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <!-- <th scope="col">#</th> -->
+                            <th scope="col">Nome</th>
+                            <th scope="col">Chave</th>
+                            <!-- <th scope="col">ANS Code</th>
+                            <th scope="col">Type</th> -->
+                            <th scope="col">Tempo Médio</th>
+                            <th scope="col">Ativo</th>
+                            <th scope="col" style="width: 40px; padding: 0 0.75rem 0 0;">
+                              <button type="button" class="btn btn-outline-success" style="padding: 3px" (click)="open(contentSU)">
+                                <i class="zmdi zmdi-plus-circle"></i>
+                              </button>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <!-- (click)="open(content, convenio.types, convenio.name)" -->
+                          <tr *ngFor="let uService of unidade.urgencyService; let i = index">
+                            <!-- <th scope="row">{{i+1}}</th> -->
+                            <td (click)="openSU(contentSU, uService.name, uService.key, uService.averageTime,
+                             uService.id, uService.activated, unidade.id)">{{uService.name}}</td>
+                            <td (click)="openSU(contentSU)">{{uService.key}}</td>
+                            <!--<td>{{convenio.ansCode}}</td>
+                            <td>{{convenio.type}}</td> -->
+                            <td (click)="openSU(contentSU)">{{uService.averageTime}}</td>
+                            <td>
+                              <!-- {{convenio.activated}} -->
+                              <div style="width: 60px;height: 34px; position: relative;display: inline-block;">
+                                <label class="switch">
+                                  <input type="checkbox" checked="true" onclick="return false">
+                                  <span class="slider round"></span>
+                                </label>
+                              </div>
+                            </td>
+                            <td class="text-center" style="padding: 0 0.75rem 0 0;">
+                              <button type="button" class="btn btn-outline-danger" style="padding: 3px" disabled>
+                                <i class="zmdi zmdi-delete"></i>
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+  </div>
+</div>
+<footer id="footer_wrapper" class="footer_wrapper"></footer>
+
+<ng-template #content let-c="close " let-d="dismiss ">
+  <div class="modal-header ">
+    <h4 class="modal-title ">Serviço {{this.nome}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')" style="padding: 0">
+      <i class="zmdi zmdi-close"></i>
+    </button>
+  </div>
+  <div class="modal-body ">
+    <div class="card">
+      <form (submit)=novoServico($event)>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Serviço</th>
+              <th scope="col">Chave</th>
+              <th scope="col">Ordem</th>
+              <th scope="col">Ativado</th>
+              <th scope="col" style="width: 40px; padding: 0 0.75rem 0 0;">
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <td>
+              <input type="text" class="form-control" value="{{this.nome}}" id="inputNome">
+            </td>
+            <td>
+              <input type="text" class="form-control" value="{{this.key}}" id="inputKey">
+            </td>
+            <td>
+              <input type="text" class="form-control" value="{{this.order}}" id="inputOrder">
+            </td>
+            <td>
+              <div style="width: 60px;height: 34px; position: relative;display: inline-block;">
+                <label class="switch">
+                  <input type="checkbox" checked="true" value="{{this.activated}}" onclick="return false" id="activated">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </td>
+            <td>
+              <button type="submit" class="btn btn-primary" style="margin: 0; height: 38px;">Confirmar</button>
+            </td>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #contentSU let-c="close " let-d="dismiss ">
+  <div class="modal-header ">
+    <h4 class="modal-title ">Serviço {{this.nome}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')" style="padding: 0">
+      <i class="zmdi zmdi-close"></i>
+    </button>
+  </div>
+  <div class="modal-body ">
+    <div class="card">
+      <form (submit)=novoServicoUnidade($event)>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Serviço</th>
+              <th scope="col">Chave</th>
+              <th scope="col">Tempo Médio</th>
+              <th scope="col">Ativado</th>
+              <th scope="col" style="width: 40px; padding: 0 0.75rem 0 0;">
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <td>
+              <input type="text" class="form-control" value="{{this.uServiceName}}" id="inputSUNome">
+            </td>
+            <td>
+              <input type="text" class="form-control" value="{{this.uServiceKey}}" id="inputSUKey">
+            </td>
+            <td>
+              <input type="text" class="form-control" value="{{this.uServiceAverage}}" id="inputSUAverage">
+            </td>
+            <td>
+              <div style="width: 60px;height: 34px; position: relative;display: inline-block;">
+                <label class="switch">
+                  <input type="checkbox" checked="true" value="{{this.uServiceActivated}}" onclick="return false" id="activatedSU">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </td>
+            <td>
+              <button type="submit" class="btn btn-primary" style="margin: 0; height: 38px;">Confirmar</button>
+            </td>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,40 @@
+
+@font-face {
+  font-family: 'mv-basico';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./mv-basico.eot');
+  src: local('mv-basico'),
+    url('./mv-basico.woff') format('woff'),
+    url('./mv-basico.woff2') format('woff2'),
+    url('./mv-basico.ttf') format('truetype');
+}
+
+.mv-basico {
+  font-family: 'mv-basico';
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "liga" 1;
+  font-style: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.mv-basico.dp24 {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+.mv-basico.dp36 {
+  font-size: 36px;
+  width: 36px;
+  height: 36px;
+}
+.mv-basico.dp48 {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+}
+    

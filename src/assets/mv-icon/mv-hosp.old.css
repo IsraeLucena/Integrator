@@ -1,0 +1,260 @@
+
+@font-face {
+  font-family: 'mv-hosp';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./mv-hosp.eot');
+  src: local('mv-hosp'),
+    url('./mv-hosp.woff') format('woff'),
+    url('./mv-hosp.woff2') format('woff2'),
+    url('./mv-hosp.ttf') format('truetype');
+}
+
+[class^="mv-hosp-"], [class*=" mv-hosp-"] {
+  font-family: 'mv-hosp';
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "liga" 1;
+  font-style: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="mv-hosp-"].dp24, [class*=" mv-hosp-"].dp24 {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+[class^="mv-hosp-"].dp36, [class*=" mv-hosp-"].dp36 {
+  font-size: 36px;
+  width: 36px;
+  height: 36px;
+}
+
+[class^="mv-hosp-"].dp48, [class*=" mv-hosp-"].dp48 {
+  font-size: 48px,
+  width: 48px,
+  height: 48px,
+}
+
+.mv-hosp-abordagem_inicial:before { content: 'abordagem_inicial' }
+.mv-hosp-acolhimento:before { content: 'acolhimento' }
+.mv-hosp-acolhimento_visualizar:before { content: 'acolhimento_visualizar' }
+.mv-hosp-acompanhamento:before { content: 'acompanhamento' }
+.mv-hosp-acompanhamento_exportar:before { content: 'acompanhamento_exportar' }
+.mv-hosp-acompanhante:before { content: 'acompanhante' }
+.mv-hosp-acompanhante_movimentacao:before { content: 'acompanhante_movimentacao' }
+.mv-hosp-admissao_medica:before { content: 'admissao_medica' }
+.mv-hosp-afericao:before { content: 'afericao' }
+.mv-hosp-alergia:before { content: 'alergia' }
+.mv-hosp-alta_medica:before { content: 'alta_medica' }
+.mv-hosp-altura:before { content: 'altura' }
+.mv-hosp-ambulancia:before { content: 'ambulancia' }
+.mv-hosp-ambulatorial:before { content: 'ambulatorial' }
+.mv-hosp-anestesia:before { content: 'anestesia' }
+.mv-hosp-anotacao_enfermagem:before { content: 'anotacao_enfermagem' }
+.mv-hosp-app_nao_frequente:before { content: 'app_nao_frequente' }
+.mv-hosp-aprazamento:before { content: 'aprazamento' }
+.mv-hosp-aprazamento_abrir:before { content: 'aprazamento_abrir' }
+.mv-hosp-aprazamento_cancelar:before { content: 'aprazamento_cancelar' }
+.mv-hosp-aprazamento_finalizar:before { content: 'aprazamento_finalizar' }
+.mv-hosp-aprazamento_finalizar_selec:before { content: 'aprazamento_finalizar_selec' }
+.mv-hosp-aprazamento_refazer:before { content: 'aprazamento_refazer' }
+.mv-hosp-aprazar:before { content: 'aprazar' }
+.mv-hosp-associar_cidadao:before { content: 'associar_cidadao' }
+.mv-hosp-atendido_medico:before { content: 'atendido_medico' }
+.mv-hosp-atendidos:before { content: 'atendidos' }
+.mv-hosp-atendimento_domiciliar:before { content: 'atendimento_domiciliar' }
+.mv-hosp-atendimento_externo:before { content: 'atendimento_externo' }
+.mv-hosp-atendimento_prescricao:before { content: 'atendimento_prescricao' }
+.mv-hosp-atendimento_social:before { content: 'atendimento_social' }
+.mv-hosp-atendimento_validar:before { content: 'atendimento_validar' }
+.mv-hosp-avaliacao:before { content: 'avaliacao' }
+.mv-hosp-avaliacao_farmaceutica:before { content: 'avaliacao_farmaceutica' }
+.mv-hosp-aviso_cirurgia_cancelado:before { content: 'aviso_cirurgia_cancelado' }
+.mv-hosp-aviso_cirurgia_realizado:before { content: 'aviso_cirurgia_realizado' }
+.mv-hosp-aviso_cirurgia_solicitado:before { content: 'aviso_cirurgia_solicitado' }
+.mv-hosp-balanco_hidrico:before { content: 'balanco_hidrico' }
+.mv-hosp-bolsa_familia:before { content: 'bolsa_familia' }
+.mv-hosp-bulario:before { content: 'bulario' }
+.mv-hosp-caminhar:before { content: 'caminhar' }
+.mv-hosp-casos_notificaveis:before { content: 'casos_notificaveis' }
+.mv-hosp-casos_notificaveis_alerta:before { content: 'casos_notificaveis_alerta' }
+.mv-hosp-checagem:before { content: 'checagem' }
+.mv-hosp-cid:before { content: 'cid' }
+.mv-hosp-circunferencia_abd:before { content: 'circunferencia_abd' }
+.mv-hosp-circunferencia_cran:before { content: 'circunferencia_cran' }
+.mv-hosp-cirurgia:before { content: 'cirurgia' }
+.mv-hosp-clinica_assistencial:before { content: 'clinica_assistencial' }
+.mv-hosp-comorbidade:before { content: 'comorbidade' }
+.mv-hosp-confirmar_chegada:before { content: 'confirmar_chegada' }
+.mv-hosp-contingencia:before { content: 'contingencia' }
+.mv-hosp-controle_salas:before { content: 'controle_salas' }
+.mv-hosp-crianca:before { content: 'crianca' }
+.mv-hosp-dengue:before { content: 'dengue' }
+.mv-hosp-dengue_risco:before { content: 'dengue_risco' }
+.mv-hosp-desfazer_suspender:before { content: 'desfazer_suspender' }
+.mv-hosp-diabetes:before { content: 'diabetes' }
+.mv-hosp-diagnostico_tratamento:before { content: 'diagnostico_tratamento' }
+.mv-hosp-dispensa:before { content: 'dispensa' }
+.mv-hosp-doencas_referidas:before { content: 'doencas_referidas' }
+.mv-hosp-dor:before { content: 'dor' }
+.mv-hosp-dose:before { content: 'dose' }
+.mv-hosp-duplicidade:before { content: 'duplicidade' }
+.mv-hosp-eletivo:before { content: 'eletivo' }
+.mv-hosp-enfermagem:before { content: 'enfermagem' }
+.mv-hosp-equipamentos:before { content: 'equipamentos' }
+.mv-hosp-estabelecimento_pendencia:before { content: 'estabelecimento_pendencia' }
+.mv-hosp-estadio:before { content: 'estadio' }
+.mv-hosp-estetoscopio:before { content: 'estetoscopio' }
+.mv-hosp-estresse:before { content: 'estresse' }
+.mv-hosp-evolucao:before { content: 'evolucao' }
+.mv-hosp-evolucao_ambulatorial:before { content: 'evolucao_ambulatorial' }
+.mv-hosp-evolucao_enfermagem:before { content: 'evolucao_enfermagem' }
+.mv-hosp-evolucao_fisioterapia:before { content: 'evolucao_fisioterapia' }
+.mv-hosp-evolucao_outros:before { content: 'evolucao_outros' }
+.mv-hosp-exame:before { content: 'exame' }
+.mv-hosp-exame_bloqueio:before { content: 'exame_bloqueio' }
+.mv-hosp-exame_comp:before { content: 'exame_comp' }
+.mv-hosp-exame_refazer:before { content: 'exame_refazer' }
+.mv-hosp-exame_revisado:before { content: 'exame_revisado' }
+.mv-hosp-exame_solicitado:before { content: 'exame_solicitado' }
+.mv-hosp-exibir_imagem:before { content: 'exibir_imagem' }
+.mv-hosp-fadiga:before { content: 'fadiga' }
+.mv-hosp-familia_acompanhamento_parcial:before { content: 'familia_acompanhamento_parcial' }
+.mv-hosp-familia_acompanhamento_total:before { content: 'familia_acompanhamento_total' }
+.mv-hosp-familia_membros:before { content: 'familia_membros' }
+.mv-hosp-familia_pendencia:before { content: 'familia_pendencia' }
+.mv-hosp-familia_remover:before { content: 'familia_remover' }
+.mv-hosp-fila:before { content: 'fila' }
+.mv-hosp-fila_adicionar:before { content: 'fila_adicionar' }
+.mv-hosp-fila_configurar:before { content: 'fila_configurar' }
+.mv-hosp-fila_vacina:before { content: 'fila_vacina' }
+.mv-hosp-fluxo_ar:before { content: 'fluxo_ar' }
+.mv-hosp-frequencia_cardiaca:before { content: 'frequencia_cardiaca' }
+.mv-hosp-frequencia_nao_frequente:before { content: 'frequencia_nao_frequente' }
+.mv-hosp-gerar_horario:before { content: 'gerar_horario' }
+.mv-hosp-hanseniase:before { content: 'hanseniase' }
+.mv-hosp-hipertensao:before { content: 'hipertensao' }
+.mv-hosp-hospital:before { content: 'hospital' }
+.mv-hosp-imc:before { content: 'imc' }
+.mv-hosp-imprimir_prontuario:before { content: 'imprimir_prontuario' }
+.mv-hosp-interacao_medicamentosa:before { content: 'interacao_medicamentosa' }
+.mv-hosp-internacao:before { content: 'internacao' }
+.mv-hosp-internado:before { content: 'internado' }
+.mv-hosp-isolamento_prescricao:before { content: 'isolamento_prescricao' }
+.mv-hosp-isolamento_sem_atendimento:before { content: 'isolamento_sem_atendimento' }
+.mv-hosp-kit_cirurgico:before { content: 'kit_cirurgico' }
+.mv-hosp-laudo:before { content: 'laudo' }
+.mv-hosp-laudo_finalizar:before { content: 'laudo_finalizar' }
+.mv-hosp-laudo_rejeitar:before { content: 'laudo_rejeitar' }
+.mv-hosp-laudos_web:before { content: 'laudos_web' }
+.mv-hosp-leito:before { content: 'leito' }
+.mv-hosp-leito_alerta:before { content: 'leito_alerta' }
+.mv-hosp-leito_isolamento:before { content: 'leito_isolamento' }
+.mv-hosp-leito_ocupado:before { content: 'leito_ocupado' }
+.mv-hosp-leito_ok:before { content: 'leito_ok' }
+.mv-hosp-limite_indefinido:before { content: 'limite_indefinido' }
+.mv-hosp-limpeza:before { content: 'limpeza' }
+.mv-hosp-limpeza_concluida:before { content: 'limpeza_concluida' }
+.mv-hosp-limpeza_espera:before { content: 'limpeza_espera' }
+.mv-hosp-link_cidadao:before { content: 'link_cidadao' }
+.mv-hosp-link_domicilio:before { content: 'link_domicilio' }
+.mv-hosp-link_familia:before { content: 'link_familia' }
+.mv-hosp-link_profissional:before { content: 'link_profissional' }
+.mv-hosp-lista_problemas:before { content: 'lista_problemas' }
+.mv-hosp-mamografia:before { content: 'mamografia' }
+.mv-hosp-materiais:before { content: 'materiais' }
+.mv-hosp-medicamentos:before { content: 'medicamentos' }
+.mv-hosp-microorganismos:before { content: 'microorganismos' }
+.mv-hosp-microscopio:before { content: 'microscopio' }
+.mv-hosp-n_padronizado:before { content: 'n_padronizado' }
+.mv-hosp-nao_atendidos:before { content: 'nao_atendidos' }
+.mv-hosp-nascido_vivo:before { content: 'nascido_vivo' }
+.mv-hosp-obito:before { content: 'obito' }
+.mv-hosp-opme:before { content: 'opme' }
+.mv-hosp-oxigenio:before { content: 'oxigenio' }
+.mv-hosp-paciente:before { content: 'paciente' }
+.mv-hosp-paciente_atualizar:before { content: 'paciente_atualizar' }
+.mv-hosp-paciente_buscar:before { content: 'paciente_buscar' }
+.mv-hosp-paciente_dados:before { content: 'paciente_dados' }
+.mv-hosp-paciente_encaixado:before { content: 'paciente_encaixado' }
+.mv-hosp-paciente_encaminhado_rejeitar:before { content: 'paciente_encaminhado_rejeitar' }
+.mv-hosp-paciente_encaminhar:before { content: 'paciente_encaminhar' }
+.mv-hosp-paciente_movimentacao:before { content: 'paciente_movimentacao' }
+.mv-hosp-paciente_receber:before { content: 'paciente_receber' }
+.mv-hosp-paciente_recebido_rejeitar:before { content: 'paciente_recebido_rejeitar' }
+.mv-hosp-paciente_remover:before { content: 'paciente_remover' }
+.mv-hosp-parecer:before { content: 'parecer' }
+.mv-hosp-patologia:before { content: 'patologia' }
+.mv-hosp-pertences:before { content: 'pertences' }
+.mv-hosp-plano_saude:before { content: 'plano_saude' }
+.mv-hosp-poltrona:before { content: 'poltrona' }
+.mv-hosp-prescricao_aberta:before { content: 'prescricao_aberta' }
+.mv-hosp-prescricao_enfermagem:before { content: 'prescricao_enfermagem' }
+.mv-hosp-prescricao_fechada:before { content: 'prescricao_fechada' }
+.mv-hosp-prescricao_finalizar:before { content: 'prescricao_finalizar' }
+.mv-hosp-prescricao_futura:before { content: 'prescricao_futura' }
+.mv-hosp-prescricao_internado:before { content: 'prescricao_internado' }
+.mv-hosp-prescricao_lista:before { content: 'prescricao_lista' }
+.mv-hosp-prescricao_padrao:before { content: 'prescricao_padrao' }
+.mv-hosp-prescricao_suspender:before { content: 'prescricao_suspender' }
+.mv-hosp-prestador:before { content: 'prestador' }
+.mv-hosp-prestador_adicionar:before { content: 'prestador_adicionar' }
+.mv-hosp-prestador_buscar:before { content: 'prestador_buscar' }
+.mv-hosp-prestador_favorito:before { content: 'prestador_favorito' }
+.mv-hosp-prestador_movimentacao:before { content: 'prestador_movimentacao' }
+.mv-hosp-procedimento_adicionar:before { content: 'procedimento_adicionar' }
+.mv-hosp-procedimento_eletivo:before { content: 'procedimento_eletivo' }
+.mv-hosp-produtividade_medica:before { content: 'produtividade_medica' }
+.mv-hosp-proibicao_convenio:before { content: 'proibicao_convenio' }
+.mv-hosp-prontuario:before { content: 'prontuario' }
+.mv-hosp-prontuario_alerta:before { content: 'prontuario_alerta' }
+.mv-hosp-protocolo_diagnostico:before { content: 'protocolo_diagnostico' }
+.mv-hosp-psf:before { content: 'psf' }
+.mv-hosp-psf_mobile:before { content: 'psf_mobile' }
+.mv-hosp-pvc:before { content: 'pvc' }
+.mv-hosp-radioterapia:before { content: 'radioterapia' }
+.mv-hosp-raio_x:before { content: 'raio_x' }
+.mv-hosp-receita:before { content: 'receita' }
+.mv-hosp-receita_reabrir:before { content: 'receita_reabrir' }
+.mv-hosp-regulacao_apac:before { content: 'regulacao_apac' }
+.mv-hosp-regulacao_apac_med:before { content: 'regulacao_apac_med' }
+.mv-hosp-regulacao_cmce:before { content: 'regulacao_cmce' }
+.mv-hosp-regulacao_emergencia:before { content: 'regulacao_emergencia' }
+.mv-hosp-regulacao_financeiro:before { content: 'regulacao_financeiro' }
+.mv-hosp-regulacao_leito:before { content: 'regulacao_leito' }
+.mv-hosp-regulacao_serp:before { content: 'regulacao_serp' }
+.mv-hosp-rejeitos:before { content: 'rejeitos' }
+.mv-hosp-remedio:before { content: 'remedio' }
+.mv-hosp-resposta_parecer:before { content: 'resposta_parecer' }
+.mv-hosp-resultados:before { content: 'resultados' }
+.mv-hosp-resumo_classificacao:before { content: 'resumo_classificacao' }
+.mv-hosp-resumo_clinico:before { content: 'resumo_clinico' }
+.mv-hosp-risco_cardio:before { content: 'risco_cardio' }
+.mv-hosp-saneamento:before { content: 'saneamento' }
+.mv-hosp-sangue:before { content: 'sangue' }
+.mv-hosp-situacao_incompativel:before { content: 'situacao_incompativel' }
+.mv-hosp-situacao_rua:before { content: 'situacao_rua' }
+.mv-hosp-soroterapia:before { content: 'soroterapia' }
+.mv-hosp-subdosagem:before { content: 'subdosagem' }
+.mv-hosp-superdosagem:before { content: 'superdosagem' }
+.mv-hosp-suspender:before { content: 'suspender' }
+.mv-hosp-tipo_material:before { content: 'tipo_material' }
+.mv-hosp-tipos_moradia:before { content: 'tipos_moradia' }
+.mv-hosp-transplante:before { content: 'transplante' }
+.mv-hosp-tratamento:before { content: 'tratamento' }
+.mv-hosp-tratamento_analisar:before { content: 'tratamento_analisar' }
+.mv-hosp-tratamento_finalidade:before { content: 'tratamento_finalidade' }
+.mv-hosp-tratamento_seguimento:before { content: 'tratamento_seguimento' }
+.mv-hosp-triagem_realizada:before { content: 'triagem_realizada' }
+.mv-hosp-tuberculose:before { content: 'tuberculose' }
+.mv-hosp-vacina:before { content: 'vacina' }
+.mv-hosp-velocidade_infusao:before { content: 'velocidade_infusao' }
+.mv-hosp-vincular_sintoma:before { content: 'vincular_sintoma' }
+.mv-hosp-visita_concluida:before { content: 'visita_concluida' }
+.mv-hosp-visita_relatorio:before { content: 'visita_relatorio' }
