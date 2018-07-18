@@ -17,6 +17,7 @@ export class UnidadesComponent implements OnInit {
   private types: any;
   closeResult: string;
   private unidades: any;
+  private modalReference: any;
 
   constructor(
     public http: HttpClient,
@@ -41,6 +42,7 @@ export class UnidadesComponent implements OnInit {
         })
         .subscribe(
           (val) => {
+            this.modalReference.close();
             console.log('POST call successful value returned in body',
               val);
             this.loadList();
@@ -62,6 +64,7 @@ export class UnidadesComponent implements OnInit {
             console.log('PUT call successful value returned in body',
               val);
             this.loadList();
+            this.getDismissReason(ModalDismissReasons.ESC);
             //alert('Conta criada com sucesso!');
             //location.reload();
             // this.router.navigate(['/unidades']);
@@ -95,9 +98,10 @@ export class UnidadesComponent implements OnInit {
     this.cnes = cnes;
     this.id = id;
     this.types = types;
-    console.log(types);
+    //console.log(types);
     // this.modalService.open(content, { size: 'lg' });
-    this.modalService.open(content, { size: 'lg', windowClass: 'custom-modal' }).result.then((result) => {
+    this.modalReference = this.modalService.open(content, { size: 'lg', windowClass: 'custom-modal' });
+    this.modalReference.result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
