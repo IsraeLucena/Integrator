@@ -43,7 +43,7 @@
               <td (click)="open(content, null ,unidade.unitName, unidade.cnes, unidade.id) ">{{unidade.unitName}}</td>
               <td (click)="open(content, null ,unidade.unitName, unidade.cnes, unidade.id) ">{{unidade.cnes}}</td>
               <td class="text-center" style="padding: 0 0.75rem 0 0;">
-                <button type="button" class="btn btn-outline-danger" style="padding: 3px" disabled (click)="remove(unidade.id)">
+                <button type="button" class="btn btn-outline-danger" style="padding: 3px" (click)="remove(unidade.id)">
                   <i class="zmdi zmdi-delete"></i>
                 </button>
               </td>

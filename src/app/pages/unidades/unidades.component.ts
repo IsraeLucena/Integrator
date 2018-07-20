@@ -42,16 +42,16 @@ export class UnidadesComponent implements OnInit {
         })
         .subscribe(
           (val) => {
-            this.modalReference.close();
-            console.log('POST call successful value returned in body',
-              val);
+            // console.log('POST call successful value returned in body',
+            //   val);
             this.loadList();
+            this.modalReference.close();
             //alert('Conta criada com sucesso!');
             //location.reload();
             // this.router.navigate(['/unidades']);
           });
     } else {
-      console.log(this.id, cnes, nome);
+      // console.log(this.id, cnes, nome);
       this.http.put('/api/unit',
         {
           clientId: 1,
@@ -61,10 +61,10 @@ export class UnidadesComponent implements OnInit {
         })
         .subscribe(
           (val) => {
-            console.log('PUT call successful value returned in body',
-              val);
+            // console.log('PUT call successful value returned in body',
+            //   val);
             this.loadList();
-            this.getDismissReason(ModalDismissReasons.ESC);
+            this.modalReference.close();
             //alert('Conta criada com sucesso!');
             //location.reload();
             // this.router.navigate(['/unidades']);
@@ -77,8 +77,8 @@ export class UnidadesComponent implements OnInit {
       this.http.delete(`/api/unit/${unidadeID}`)
         .subscribe(
           (val) => {
-            console.log('POST call successful value returned in body',
-              val);
+            // console.log('POST call successful value returned in body',
+            //   val);
             this.loadList();
             //alert('Conta criada com sucesso!');
             //location.reload();
