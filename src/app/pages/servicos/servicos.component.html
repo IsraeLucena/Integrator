@@ -115,7 +115,7 @@
                       </div>
                     </td>
                     <td class="text-center" style="padding: 0 0.75rem 0 0;">
-                      <button type="button" class="btn btn-outline-danger" style="padding: 3px" disabled (click)="remove(servico.id)">
+                      <button type="button" class="btn btn-outline-danger" style="padding: 3px" (click)="remove(servico.id)">
                         <i class="zmdi zmdi-delete"></i>
                       </button>
                     </td>
@@ -166,7 +166,7 @@
                             <th scope="col">Tempo Médio</th>
                             <th scope="col">Ativo</th>
                             <th scope="col" style="width: 40px; padding: 0 0.75rem 0 0;">
-                              <button type="button" class="btn btn-outline-success" style="padding: 3px" (click)="open(contentSU)">
+                              <button type="button" class="btn btn-outline-success" style="padding: 3px" (click)="openSU(contentSU, null, null, null, null,null, unidade.id)">
                                 <i class="zmdi zmdi-plus-circle"></i>
                               </button>
                             </th>
@@ -177,11 +177,13 @@
                           <tr *ngFor="let uService of unidade.urgencyService; let i = index">
                             <!-- <th scope="row">{{i+1}}</th> -->
                             <td (click)="openSU(contentSU, uService.name, uService.key, uService.averageTime,
-                             uService.id, uService.activated, unidade.id)">{{uService.name}}</td>
-                            <td (click)="openSU(contentSU)">{{uService.key}}</td>
+                             uService.activated, uService.id, unidade.id)">{{uService.name}}</td>
+                            <td (click)="openSU(contentSU, uService.name, uService.key, uService.averageTime,
+                            uService.activated, uService.id, unidade.id)">{{uService.key}}</td>
                             <!--<td>{{convenio.ansCode}}</td>
                             <td>{{convenio.type}}</td> -->
-                            <td (click)="openSU(contentSU)">{{uService.averageTime}}</td>
+                            <td (click)="openSU(contentSU, uService.name, uService.key, uService.averageTime,
+                            uService.activated, uService.id, unidade.id)">{{uService.averageTime}}</td>
                             <td>
                               <!-- {{convenio.activated}} -->
                               <div style="width: 60px;height: 34px; position: relative;display: inline-block;">
@@ -192,7 +194,7 @@
                               </div>
                             </td>
                             <td class="text-center" style="padding: 0 0.75rem 0 0;">
-                              <button type="button" class="btn btn-outline-danger" style="padding: 3px" disabled>
+                              <button type="button" class="btn btn-outline-danger" style="padding: 3px">
                                 <i class="zmdi zmdi-delete"></i>
                               </button>
                             </td>

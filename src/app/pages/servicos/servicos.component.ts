@@ -18,6 +18,8 @@ export class ServicosComponent implements OnInit {
   private id: any;
   private activated: any;
   closeResult: string;
+  private modalReference: any;
+
 
   private uServiceName: any;
   private uServiceKey: any;
@@ -52,6 +54,7 @@ export class ServicosComponent implements OnInit {
             console.log('POST call successful value returned in body',
               val);
             this.loadServicos();
+            this.modalReference.close();
             //alert('Conta criada com sucesso!');
             //location.reload();
             // this.router.navigate(['/unidades']);
@@ -77,6 +80,7 @@ export class ServicosComponent implements OnInit {
             console.log('PUT call successful value returned in body',
               val);
             this.loadServicos();
+            this.modalReference.close();
             //alert('Conta criada com sucesso!');
             //location.reload();
             // this.router.navigate(['/unidades']);
@@ -102,31 +106,40 @@ export class ServicosComponent implements OnInit {
   novoServicoUnidade(event) {
     event.preventDefault();
     const target = event.target;
-    const nome = target.querySelector('#inputNome').value;
-    const key = target.querySelector('#inputKey').value;
+    const nome = target.querySelector('#inputSUNome').value;
+    const key = target.querySelector('#inputSUKey').value;
+    const average = target.querySelector('#inputSUAverage').value;
     //const activate = target.querySelector('#activated').value;
-    if (this.id == null) {
-      this.http.post('/api/urgency',
+    console.log("serviceIDId: " + this.uServiceID +
+      "key: " + key +
+      "name: " + nome +
+      "averageTime: " + average +
+      "activated: " + true);
+    if (this.uServiceID == null) {
+      this.http.post('/api/unit_urgency',
         {
-          clientId: 1,
+          unitId: this.uServiceUnitID,
           key: key,
           name: nome,
+          averageTime: average,
           activated: true
         })
         .subscribe(
           (val) => {
             console.log('POST call successful value returned in body',
               val);
-            this.loadServicos();
+            this.loadUnidades();
+            this.modalReference.close();
             //alert('Conta criada com sucesso!');
             //location.reload();
             // this.router.navigate(['/unidades']);
           });
     } else {
       console.log(this.id, key, nome);
-      this.http.put(`/api/urgency/${this.id}`,
+      this.http.put(`/api/unit_urgency/${this.uServiceID}`,
         {
-          clientId: 1,
+          unitId: this.uServiceUnitID,
+          averageTime: average,
           key: key,
           name: nome,
           activated: true
@@ -135,7 +148,8 @@ export class ServicosComponent implements OnInit {
           (val) => {
             console.log('PUT call successful value returned in body',
               val);
-            this.loadServicos();
+            this.loadUnidades();
+            this.modalReference.close();
             //alert('Conta criada com sucesso!');
             //location.reload();
             // this.router.navigate(['/unidades']);
@@ -144,13 +158,13 @@ export class ServicosComponent implements OnInit {
   }
 
   removeSU(servicoID: any) {
-    if (servicoID != null) {
+    if (this.uServiceID != null) {
       this.http.delete(`/api/urgency/${servicoID}`)
         .subscribe(
           (val) => {
             console.log('POST call successful value returned in body',
               val);
-            this.loadServicos();
+            this.loadUnidades();
             //alert('Conta criada com sucesso!');
             //location.reload();
             // this.router.navigate(['/unidades']);
@@ -178,19 +192,21 @@ export class ServicosComponent implements OnInit {
 
   loadUnidades() {
     this.http.get('/api/unit').subscribe(data => {
-      // console.log(data);
+      console.log(data);
       this.unidades = data;
     });
   }
 
   openSU(content, nome, key, average, activated, id, unitID) {
+    console.log(unitID);
     this.uServiceName = nome;
     this.uServiceKey = key;
     this.uServiceAverage = average;
     this.uServiceActivated = activated;
     this.uServiceUnitID = unitID;
     this.uServiceID = id;
-    this.modalService.open(content, { size: 'lg', windowClass: 'custom-modal' }).result.then((result) => {
+    this.modalReference = this.modalService.open(content, { size: 'lg', windowClass: 'custom-modal' });
+    this.modalReference.result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -203,7 +219,8 @@ export class ServicosComponent implements OnInit {
     this.order = order;
     this.activated = activated;
     this.id = id;
-    this.modalService.open(content, { size: 'lg', windowClass: 'custom-modal' }).result.then((result) => {
+    this.modalReference = this.modalService.open(content, { size: 'lg', windowClass: 'custom-modal' });
+    this.modalReference.result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
