@@ -15,12 +15,8 @@
           <form>
             <div class="container">
               <div class="row">
-                <div class="col-sm-8 form-group " style="margin-top: 0.9rem">
-                  <label for="inputnome" class="sr-only">Nome</label>
-                  <input type="text" class="form-control" id="inputNome" placeholder="Nome">
-                </div>
-                <div class="col-sm-3 form-group ">
-                  <button type="submit" class="btn btn-primary">Pesquisar Unidade</button>
+                <div class="col-sm">
+                  <input type="text" [(ngModel)]="userFilter.name" name="name" class="form-control" placeholder="Pesquisar Unidade">
                 </div>
               </div>
             </div>
@@ -39,9 +35,9 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor=" let unidade of unidades; let i=i ndex ">
-              <td (click)="open(content, null ,unidade.unitName, unidade.cnes, unidade.id) ">{{unidade.unitName}}</td>
-              <td (click)="open(content, null ,unidade.unitName, unidade.cnes, unidade.id) ">{{unidade.cnes}}</td>
+            <tr *ngFor=" let unidade of unidades| filterBy: userFilter; let i=index ">
+              <td (click)="open(content, null ,unidade.name, unidade.cnes, unidade.id) ">{{unidade.name}}</td>
+              <td (click)="open(content, null ,unidade.name, unidade.cnes, unidade.id) ">{{unidade.cnes}}</td>
               <td class="text-center" style="padding: 0 0.75rem 0 0;">
                 <button type="button" class="btn btn-outline-danger" style="padding: 3px" (click)="remove(unidade.id)">
                   <i class="zmdi zmdi-delete"></i>
@@ -54,7 +50,7 @@
     </div>
   </div>
 </div>
-<footer id="footer_wrapper" class="footer_wrapper"></footer>
+<!-- <footer id="footer_wrapper" class="footer_wrapper"></footer> -->
 
 <ng-template #content let-c="close " let-d="dismiss ">
   <div class="modal-header ">

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: '.content_inner_wrapper',
@@ -18,10 +19,12 @@ export class UnidadesComponent implements OnInit {
   closeResult: string;
   private unidades: any;
   private modalReference: any;
+  userFilter: any = { name: '' };
 
   constructor(
     public http: HttpClient,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -38,7 +41,7 @@ export class UnidadesComponent implements OnInit {
         {
           clientId: 1,
           cnes: cnes,
-          unitName: nome
+          name: nome
         })
         .subscribe(
           (val) => {
@@ -46,8 +49,9 @@ export class UnidadesComponent implements OnInit {
             //   val);
             this.loadList();
             this.modalReference.close();
-            //alert('Conta criada com sucesso!');
-            //location.reload();
+            this.showAdd();
+            // alert('Conta criada com sucesso!');
+            // location.reload();
             // this.router.navigate(['/unidades']);
           });
     } else {
@@ -57,7 +61,7 @@ export class UnidadesComponent implements OnInit {
           clientId: 1,
           id: this.id,
           cnes: cnes,
-          unitName: nome
+          name: nome
         })
         .subscribe(
           (val) => {
@@ -65,8 +69,9 @@ export class UnidadesComponent implements OnInit {
             //   val);
             this.loadList();
             this.modalReference.close();
-            //alert('Conta criada com sucesso!');
-            //location.reload();
+            this.showEdit();
+            // alert('Conta criada com sucesso!');
+            // location.reload();
             // this.router.navigate(['/unidades']);
           });
     }
@@ -80,8 +85,9 @@ export class UnidadesComponent implements OnInit {
             // console.log('POST call successful value returned in body',
             //   val);
             this.loadList();
-            //alert('Conta criada com sucesso!');
-            //location.reload();
+            this.showDelete();
+            // alert('Conta criada com sucesso!');
+            // location.reload();
             // this.router.navigate(['/unidades']);
           });
     }
@@ -89,6 +95,7 @@ export class UnidadesComponent implements OnInit {
 
   loadList() {
     this.http.get('/api/unit').subscribe(data => {
+      // console.log(data);
       this.unidades = data;
     });
   }
@@ -98,7 +105,7 @@ export class UnidadesComponent implements OnInit {
     this.cnes = cnes;
     this.id = id;
     this.types = types;
-    //console.log(types);
+    // console.log(types);
     // this.modalService.open(content, { size: 'lg' });
     this.modalReference = this.modalService.open(content, { size: 'lg', windowClass: 'custom-modal' });
     this.modalReference.result.then((result) => {
@@ -116,5 +123,17 @@ export class UnidadesComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
+  }
+
+  showAdd() {
+    this.toastr.success('', 'Unidade Adicionada.');
+  }
+
+  showEdit() {
+    this.toastr.success('', 'Unidade Alterada.');
+  }
+
+  showDelete() {
+    this.toastr.error('', 'Unidade Removida.');
   }
 }

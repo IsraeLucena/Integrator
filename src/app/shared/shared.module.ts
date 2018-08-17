@@ -22,7 +22,7 @@ import { MatRippleModule } from '@angular/material';
 // fullcalendar
 import { FullCalendarModule } from 'ng-fullcalendar';
 
-//check
+// check
 import { ElCheckboxComponent } from './components/el-checkbox/el-checkbox.component';
 
 @NgModule({

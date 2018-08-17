@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { ServicosComponent } from './servicos.component';
 import { SharedModule } from '../../shared/shared.module';
 
+import { FilterPipeModule } from 'ngx-filter-pipe';
 
 const CONVENIO_ROUTE = [
   { path: '', component: ServicosComponent },
@@ -14,7 +15,8 @@ const CONVENIO_ROUTE = [
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule.forChild(CONVENIO_ROUTE)
+    RouterModule.forChild(CONVENIO_ROUTE),
+    FilterPipeModule
   ]
 
 })

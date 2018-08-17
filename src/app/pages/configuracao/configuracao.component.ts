@@ -24,18 +24,18 @@ export class ConfiguracaoComponent implements OnInit {
   loadData() {
     this.http.get('/api/user').subscribe(data => {
       this.config = data[0];
-      console.log(this.config);
+      // console.log(this.config);
     });
   }
 
   onSubmit(modelConf: any) {
-    console.log(this.config);
-    console.log(modelConf);
+    // console.log(this.config);
+    // console.log(modelConf);
     this.http.put('/api/user', this.config)
       .subscribe(
         (val) => {
-          console.log('PUT call successful value returned in body',
-            val);
+          // console.log('PUT call successful value returned in body',
+          //   val);
           // TOAST
         });
   }

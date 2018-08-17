@@ -14,6 +14,7 @@ export class ConveniosComponent implements OnInit {
   closeResult: string;
   private nome: any;
   private types: any;
+  userFilter: any = { name: '' };
 
   constructor(
     public http: HttpClient,
@@ -25,7 +26,7 @@ export class ConveniosComponent implements OnInit {
 
   loadList() {
     this.http.get('/api/plan').subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.convenios = data;
     });
   }
@@ -33,7 +34,7 @@ export class ConveniosComponent implements OnInit {
   open(content, types, nome) {
     this.nome = nome;
     this.types = types;
-    console.log(types);
+    // console.log(types);
     // this.modalService.open(content, { size: 'lg' });
     this.modalService.open(content, { size: 'lg', windowClass: 'custom-modal' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;

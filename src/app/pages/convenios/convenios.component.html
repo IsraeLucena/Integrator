@@ -31,12 +31,8 @@
         <header class="card-header">
           <form (submit)=novaUnidade($event)>
             <div class="row">
-              <div class="col-sm-8 form-group " style="margin-top: 0.9rem">
-                <label for="inputnome" class="sr-only">Nome</label>
-                <input type="text" class="form-control" id="inputNome" placeholder="Nome">
-              </div>
-              <div class="col-sm-3 form-group ">
-                <button type="submit" class="btn btn-primary">Pesquisar Convênio</button>
+              <div class="col-sm">
+                <input type="text" [(ngModel)]="userFilter.name" class="form-control" name="name" placeholder="Pesquisar Convênio">
               </div>
             </div>
           </form>
@@ -53,7 +49,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let convenio of convenios; let i = index" (click)="open(content, convenio.types, convenio.name)">
+            <tr *ngFor="let convenio of convenios| filterBy: userFilter; let i = index" (click)="open(content, convenio.types, convenio.name)">
               <!-- <th scope="row">{{i+1}}</th> -->
               <td>{{convenio.name}}</td>
               <td>{{convenio.code}}</td>
@@ -67,7 +63,7 @@
     </div>
   </div>
 </div>
-<footer id="footer_wrapper" class="footer_wrapper"></footer>
+<!-- <footer id="footer_wrapper" class="footer_wrapper"></footer> -->
 
 <ng-template #content let-c="close" let-d="dismiss" style="max-width: 800px;">
   <div class="modal-header ">

@@ -75,17 +75,11 @@
           <div class="content-body">
             <div class="card">
               <header class="card-header">
-                <form (submit)=novaUnidade($event)>
-                  <div class="row">
-                    <div class="col-sm-8 form-group " style="margin-top: 0.9rem">
-                      <label for="inputnome" class="sr-only">Nome</label>
-                      <input type="text" class="form-control" id="inputNome" placeholder="Nome">
-                    </div>
-                    <div class="col-sm-3 form-group ">
-                      <button type="submit" class="btn btn-primary">Pesquisar Serviço</button>
-                    </div>
+                <div class="row">
+                  <div class="col-sm">
+                    <input type="text" [(ngModel)]="userFilter.name" name="name" class="form-control" placeholder="Pesquisar Serviço">
                   </div>
-                </form>
+                </div>
               </header>
               <table class="table">
                 <thead>
@@ -102,7 +96,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let servico of servicos; let i = index">
+                  <tr *ngFor="let servico of servicos| filterBy: userFilter; let i = index">
                     <td (click)="open(content, servico.name, servico.key, servico.fixedOrder, servico.activated, servico.id)">{{servico.name}}</td>
                     <td (click)="open(content, servico.name, servico.key, servico.fixedOrder, servico.activated, servico.id)">{{servico.key}}</td>
                     <td (click)="open(content, servico.name, servico.key, servico.fixedOrder, servico.activated, servico.id)">{{servico.fixedOrder}}</td>
@@ -131,25 +125,19 @@
           <div class="content-body">
             <div class="card">
               <header class="card-header">
-                <form (submit)=novaUnidade($event)>
-                  <div class="row">
-                    <div class="col-sm-8 form-group " style="margin-top: 0.9rem">
-                      <label for="inputnome" class="sr-only">Nome</label>
-                      <input type="text" class="form-control" id="inputNome" placeholder="Nome">
-                    </div>
-                    <div class="col-sm-3 form-group ">
-                      <button type="submit" class="btn btn-primary">Pesquisar Unidade</button>
-                    </div>
+                <div class="row">
+                  <div class="col-sm">
+                    <input type="text" [(ngModel)]="userFilter.name" name="name" class="form-control" placeholder="Pesquisar Unidade">
                   </div>
-                </form>
+                </div>
               </header>
               <div class="accordion" id="accordion">
-                <div class="card p-0 m-0" *ngFor="let unidade of unidades; let i = index">
+                <div class="card p-0 m-0" *ngFor="let unidade of unidades| filterBy: userFilter; let i = index">
                   <div class="card-header border-bottom p-0" id="'collapseP'+i">
                     <h5 class="mb-0">
                       <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#collapseP'+i" aria-expanded="true"
                         aria-controls="collapseOne">
-                        Unidade {{unidade.unitName}}
+                        {{unidade.name}}
                       </button>
                     </h5>
                   </div>
@@ -212,7 +200,7 @@
     </ngb-tabset>
   </div>
 </div>
-<footer id="footer_wrapper" class="footer_wrapper"></footer>
+<!-- <footer id="footer_wrapper" class="footer_wrapper"></footer> -->
 
 <ng-template #content let-c="close " let-d="dismiss ">
   <div class="modal-header ">

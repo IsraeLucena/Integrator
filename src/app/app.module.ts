@@ -16,6 +16,10 @@ import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-br
 
 import { AceEditorModule } from 'ng2-ace-editor';
 
+import { ToastrModule } from 'ngx-toastr';
+
+import { FilterPipeModule } from 'ngx-filter-pipe';
+
 export class HammerConfig extends HammerGestureConfig {
   overrides = <any>{
     'swipe': { velocity: 0.4, threshold: 20 }
@@ -49,7 +53,13 @@ export type StoreType = {
     SharedModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    AceEditorModule
+    AceEditorModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true
+    }),
+    FilterPipeModule
   ],
   providers: [APP_PROVIDERS],
   bootstrap: [AppComponent]

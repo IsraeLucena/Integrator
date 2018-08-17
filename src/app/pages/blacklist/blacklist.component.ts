@@ -25,16 +25,16 @@ export class BlacklistComponent implements OnInit {
 
   loadUnidades() {
     this.http.get('/api/unit').subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.unidades = data;
-      console.log(this.unidades[0].blackList[0]);
+      // console.log(this.unidades[0].blackList[0]);
     });
   }
 
   open(content, nome, convenios, activated, id) {
     this.nome = nome;
     this.convenios = convenios;
-    console.log(convenios);
+    // console.log(convenios);
     // this.activated = activated;
     // this.id = id;
     this.modalService.open(content, { size: 'lg', windowClass: 'custom-modal' }).result.then((result) => {
